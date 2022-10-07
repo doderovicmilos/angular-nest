@@ -1,0 +1,2 @@
+<p *ngFor="let user of users$ | async" (click)="removeUser(user._id)" >{{user | json}}</p>
+
