@@ -13,8 +13,8 @@ services:
       - mongodb
     environment:
       MONGO_URL: root:pass12345@localhost
-    networks:
-      - server-network      
+    # networks:
+    #   - server-network      
     ports:
       - 3000:3000
       - 9229:9229
@@ -24,8 +24,8 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=root
       - MONGO_INITDB_ROOT_PASSWORD=pass12345
-    networks:
-      - server-network
+    # networks:
+    #   - server-network
     ports:
       - 27017:27017
     healthcheck:
@@ -33,9 +33,8 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
-    restart: unless-stopped  
-  Our Angular Frontend
-  frontend:
+    restart: unless-stopped
+  spa:
     build:
       dockerfile: Dockerfile
       context: ./spa
@@ -47,7 +46,8 @@ services:
     ports:
       - 4200:4200
     links:
-      - api
-networks:
-  server-network:
-
+      - api  
+    # networks:
+    #   - server-network  
+# networks:
+#   server-network:
