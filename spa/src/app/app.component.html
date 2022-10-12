@@ -1,1 +1,12 @@
+<nav mat-tab-nav-bar>
+    <a mat-tab-link
+       *ngFor="let link of links"
+       [routerLink]="link.path"
+       routerLinkActive #rla="routerLinkActive"
+       [active]="rla.isActive">
+      <mat-icon *ngIf="link.icon == 'home'" aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+      <span *ngIf="link.icon != 'home'">{{link.label}}</span>
+    </a>
+  </nav>
+
 <router-outlet></router-outlet>

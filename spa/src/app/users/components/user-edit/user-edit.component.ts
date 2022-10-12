@@ -14,7 +14,7 @@ export class UserEditComponent implements OnInit {
   
  
   userForm = this.fb.group({
-    name: ['', Validators.required],
+    username: ['', Validators.required],
     roles: this.fb.array([
       this.fb.control('')
     ])
@@ -38,7 +38,7 @@ export class UserEditComponent implements OnInit {
 
   handleSubmit() {
     // TODO: Use EventEmitter with form value
-    this.onSubmit.emit({name: this.userForm.value.name, roles: this.userForm.value.roles});
+    this.onSubmit.emit({username: this.userForm.value.username, roles: this.userForm.value.roles});
   }
 
 }
