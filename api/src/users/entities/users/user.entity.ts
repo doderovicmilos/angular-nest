@@ -1,5 +1,6 @@
 import { UserRoles } from './userRoles';
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Company } from 'src/companies/entities/companies/company.entity';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, JoinTable } from 'typeorm';
 
 @Entity({ name: 'users' })
 export class User {
@@ -15,4 +16,8 @@ export class User {
     default: [UserRoles.USER]
   })
   roles: UserRoles[];
+
+  @ManyToMany(()=> Company)
+  @JoinTable()
+  companies: Company[];
 }

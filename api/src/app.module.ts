@@ -7,6 +7,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
 import { UserModule } from './users/user.module';
 import { User } from './users/entities/users/user.entity';
+import { CompaniesModule } from './companies/companies.module';
+import { Company } from './companies/entities/companies/company.entity';
 
 @Module({
   imports: [
@@ -29,10 +31,11 @@ import { User } from './users/entities/users/user.entity';
       username: 'user',
       password: 'password',
       database: 'db',
-      entities: [User],
-      synchronize: true
+      entities: [User, Company],
+      synchronize: true      
     }),
-    UserModule
+    UserModule,
+    CompaniesModule
   ],
   controllers: [AppController],
   providers: [AppService],
