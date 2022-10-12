@@ -1,15 +1,38 @@
 import { Module } from '@nestjs/common';
+import { GraphQLModule } from '@nestjs/graphql';
+import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { AppController } from './app.controller';
-import { MongooseModule } from '@nestjs/mongoose';
 import { AppService } from './app.service';
-import { UsersModule } from './users/users.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { join } from 'path';
+import { UserModule } from './users/user.module';
+import { User } from './users/entities/users/user.entity';
 
 @Module({
   imports: [
-    MongooseModule.forRoot(
-      `mongodb://root:pass12345@mongodb:27017/shop?serverSelectionTimeoutMS=2000&authSource=admin`,
-    ),
-    UsersModule
+    GraphQLModule.forRoot<ApolloDriverConfig>({
+      driver: ApolloDriver,
+      typePaths: ['./**/*.graphql'],
+      playground: true
+    }),
+    UserModule,
+    TypeOrmModule.forRoot({
+      // type: 'mongodb',
+      // url:
+      // `mongodb://root:pass12345@mongodb:27017/shop?serverSelectionTimeoutMS=2000&authSource=admin`,
+      // entities: [join(__dirname, '**/**.entity{.ts,.js}')],
+      // synchronize: true,
+      // useNewUrlParser: true,
+      // logging: true,      
+      type: 'mysql',
+      host: 'mysql',
+      username: 'user',
+      password: 'password',
+      database: 'db',
+      entities: [User],
+      synchronize: true
+    }),
+    UserModule
   ],
   controllers: [AppController],
   providers: [AppService],
