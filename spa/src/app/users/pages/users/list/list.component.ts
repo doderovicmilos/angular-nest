@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { User } from 'src/app/users/models/users/user.model';
 import { UsersService } from 'src/app/users/services/users/users.service';
+//import { MatTableDataSource } from '@angular/material/table';
+
+
 
 @Component({
   selector: 'app-list',
@@ -9,7 +13,10 @@ import { UsersService } from 'src/app/users/services/users/users.service';
 })
 export class ListComponent implements OnInit {
 
-  users$!: Observable<any>;
+  displayedColumns: string[] = ['name', 'roles', 'companies'];
+  
+
+  users$!: Observable<User[]>;
 
   constructor(private usersService: UsersService) { }
 
@@ -18,7 +25,7 @@ export class ListComponent implements OnInit {
     this.users$ = this.usersService.users$;
   }
 
-  removeUser(id:string){ 
+  removeUser(id:number){ 
     console.log(id);
     this.usersService.removeUser(id);
   }

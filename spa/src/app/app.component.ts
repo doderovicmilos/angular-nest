@@ -15,8 +15,8 @@ export class AppComponent {
      },
 
     {
-      label: 'Projects',
-      path: 'projects',
+      label: 'Companies',
+      path: 'companies',
      },
      {
       label: 'Users',

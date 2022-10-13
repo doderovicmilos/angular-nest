@@ -2,40 +2,36 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { UsersRoutingModule } from './users-routing.module';
-import { ListComponent } from './pages/users/list/list.component';
-import { UserEditComponent } from './components/user-edit/user-edit.component';
+import { CompaniesRoutingModule } from './companies-routing.module';
+import { MainComponent } from './pages/companies/main/main.component';
+import { ListComponent } from './pages/companies/list/list.component';
 
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatChipsModule } from '@angular/material/chips';
+import { NewCompanyComponent } from './pages/companies/new-company/new-company.component';
+import { CompanyEditComponent } from './components/company-edit/company-edit.component';
 import { MatTableModule } from '@angular/material/table';
-
-
-import { NewComponent } from './pages/users/new/new.component';
-import { UsersComponent } from './pages/users/main/users.component';
-
 
 @NgModule({
   declarations: [
+    MainComponent,
     ListComponent,
-    NewComponent,
-    UsersComponent,
-    UserEditComponent
+    NewCompanyComponent,
+    CompanyEditComponent
   ],
   imports: [
     CommonModule,
-    UsersRoutingModule,
+    CompaniesRoutingModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatButtonModule,
     MatSelectModule,
+    MatButtonModule,
     MatCheckboxModule,
     MatChipsModule,
-    MatTableModule,
-
+    MatTableModule
   ]
 })
-export class UsersModule { }
+export class CompaniesModule { }//

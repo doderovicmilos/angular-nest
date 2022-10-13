@@ -11,6 +11,8 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 
 import { UsersModule } from './users/users.module';
+import { CompaniesModule } from './companies/companies.module';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { UsersModule } from './users/users.module';
     ReactiveFormsModule,
     MatTabsModule,
     MatIconModule,
-    UsersModule
+    UsersModule,
+    CompaniesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -19,6 +19,19 @@
     </mat-form-field>
       </div>
     </div>
+
+
+
+    <mat-form-field appearance="fill">
+      <mat-label>Companies</mat-label>
+      <mat-select formControlName="companies" multiple>
+        <mat-option *ngFor="let company of companies$ | async" [value]="company.id">
+          {{company.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
     <button type="submit" [disabled]="!userForm.valid" mat-raised-button >Submit</button>
   </form>
   

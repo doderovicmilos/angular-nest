@@ -1,18 +1,19 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject, map, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { User } from '../../models/users/user.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
 
-  users$ = new Subject<any>();
+  users$ = new Subject<User[]>();
 
   constructor(private http: HttpClient) { }
 
   getUsers(){
-    this.http.get('api/users')
+    this.http.get<User[]>('api/users')
     .subscribe(users => { 
       this.users$.next(users);
     });

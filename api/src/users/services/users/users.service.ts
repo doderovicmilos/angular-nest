@@ -25,7 +25,7 @@ export class UsersService {
 
         for (const id of userDto.companyIds){
             const company = await this.companyRepository.findOneBy({ id });
-            companies.push(company);
+            if (company) companies.push(company);
         }
         newUser.companies = companies;
 

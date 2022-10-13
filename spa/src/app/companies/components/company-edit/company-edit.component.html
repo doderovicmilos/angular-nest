@@ -1,0 +1,21 @@
+<form [formGroup]="companyForm" (ngSubmit)="handleSubmit()">
+    
+    <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput id="first-name" type="text" formControlName="name" required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Address</mat-label>
+        <input matInput id="first-name" type="text" formControlName="address" required>
+    </mat-form-field>
+    
+  
+    <button type="submit" [disabled]="!companyForm.valid" mat-raised-button >Submit</button>
+  </form>
+  
+  <hr>
+  
+  <p>Form Value: {{ companyForm.value | json }}</p>
+  
+  <p>Form Status: {{ companyForm.status }}</p>

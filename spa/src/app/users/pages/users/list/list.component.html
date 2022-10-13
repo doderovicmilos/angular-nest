@@ -1,1 +1,22 @@
-<p *ngFor="let user of users$ | async" (click)="removeUser(user.id)" >{{user | json}}</p>
+<!-- <p *ngFor="let user of users$ | async" (click)="removeUser(user.id)" >{{user | json}}</p> -->
+<table mat-table [dataSource]="users$" class="mat-elevation-z3">
+    
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let user"> {{user.username}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="roles">
+      <th mat-header-cell *matHeaderCellDef> Roles </th>
+      <td mat-cell *matCellDef="let user"> {{user.roles.join(", ") | titlecase }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="companies">
+        <th mat-header-cell *matHeaderCellDef> Companies </th>
+        <td mat-cell *matCellDef="let user">
+            <span *ngFor="let company of user.companies; index as i;">{{company.name}}<span *ngIf="i < user.companies.length-1">, </span> </span>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> 
+</table>
