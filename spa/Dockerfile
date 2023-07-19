@@ -6,8 +6,8 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-#RUN npm install
-#RUN npm install -g @angular/cli@12.0.0
+RUN npm install
+RUN npm install -g @angular/cli@12.0.0
 
 COPY . .
 
