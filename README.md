@@ -4,7 +4,7 @@ Simple dockerized Angular and NestJS CRUD aplication.
 
 Companies can be added via New Company page and Users via New User page.
 
-Once company is added it can be assigned to user using companies dopdown.
+Once company is added it can be assigned to user using companies dropdown.
 
 Possible roles are: ADMIN, MODERATOR, USER.
 
