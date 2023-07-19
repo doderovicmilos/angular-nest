@@ -12,7 +12,7 @@ Once app is started Front-End will be accessible on http://localhost:4200/ and B
 
 ## Prereqiusites
 
-You need to have Docker and Docker Compose installed on you machine as well as NodeJs and NPM.
+Before starting make sure you have Docker, Docker Compose, NodeJs and NPM installed on machine.
 
 ## Installation
 
