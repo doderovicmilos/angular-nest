@@ -8,6 +8,8 @@ Once company is added it can be assigned to user using companies dopdown.
 
 Possible roles are: ADMIN, MODERATOR, USER.
 
+Once app is started Front-End will be accessible on http://localhost:4200/ and Back-End will be accessible on http://localhost:3000/
+
 ## Prereqiusites
 
 You need to have Docker and Docker Compose installed on you machine as well as NodeJs and NPM.
